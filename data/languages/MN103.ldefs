@@ -3,13 +3,13 @@
 <language_definitions>
   <language processor="MN103"
             endian="little"
-            size="24"
+            size="32"
             variant="MN103S71F"
-            version="1.0"
+            version="0.0"
             slafile="MN103.sla"
             processorspec="MN103.pspec"
             manualindexfile="../manuals/MN103.idx"
-            id="MN103:LE:24:default">
+            id="MN103:LE:32:default">
     <description>MN103 Microcontroller Family</description>
     <compiler name="default" spec="MN103.cspec" id="default"/>
   </language>

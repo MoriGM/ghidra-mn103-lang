@@ -11,37 +11,41 @@
     <machine_alignment value="2" />
     <default_alignment value="2" />
     <default_pointer_alignment value="4" />
-    <pointer_size value="3" />
+    <pointer_size value="4" />
     <short_size value="2" />
-    <integer_size value="3" />
-    <long_size value="4" />
+    <integer_size value="4" />
+    <long_size value="8" />
     <size_alignment_map>
       <entry size="1" alignment="1" />
       <entry size="2" alignment="2" />
       <entry size="3" alignment="2" />
       <entry size="4" alignment="4" />
+      <entry size="5" alignment="5" />
+      <entry size="6" alignment="6" />
+      <entry size="7" alignment="7" />
+      <entry size="8" alignment="8" />
     </size_alignment_map>
   </data_organization>
   <stackpointer register="SP" space="ram" growth="negative"/>
   <returnaddress>
-    <varnode space="stack" offset="0" size="3"/>
+    <varnode space="stack" offset="0" size="4"/>
   </returnaddress>
   <default_proto>
     <prototype name="__stdcall" extrapop="0" stackshift="0" strategy="register">
       <!-- Complete guess! -->
       <input>
-        <pentry minsize="1" maxsize="3">
+        <pentry minsize="1" maxsize="8">
           <register name="D0"/>
         </pentry>
-        <pentry minsize="1" maxsize="3">
+        <pentry minsize="1" maxsize="8">
           <register name="D1"/>
         </pentry>
-        <pentry minsize="3" maxsize="3">
+        <pentry minsize="3" maxsize="4">
           <register name="A0"/>
         </pentry>
       </input>
       <output>
-        <pentry minsize="1" maxsize="3">
+        <pentry minsize="1" maxsize="8">
           <register name="D0"/>
         </pentry>
       </output>
@@ -63,19 +67,7 @@
         <register name="PSW_CX" />
         <register name="PSW_VX" />
       </killedbycall>
-      <!--<localrange>
-        <range space="stack" first="0x0" last="0xf"/>
-      </localrange>-->
     </prototype>
   </default_proto>
-  
-  <!--<callfixup name="switch_override_ACC">
-    <pcode>
-      <body><![CDATA[
-			PC = inst_next + zext(ACC) * 3;
-            goto [PC];
-      ]]></body>
-    </pcode>
-  </callfixup>-->
   
 </compiler_spec>

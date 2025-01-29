@@ -1,1 +1,2 @@
-@include "MN103_main.sinc"
+@include "MN103.sinc"
+@include "MN103S.sinc"
