@@ -1,1 +1,36 @@
 # sleigh specification file for Matsushita MN103
+
+# PSW register
+define register offset=0x0 size=2 [ PSW ]
+# Data registers
+define register offset=0x2 size=4 [ D0 D1 D2 D3 ];
+# Address registers
+define register offset=0x12 size=4 [ A0 A1 A2 SP ];
+# Program counter
+define register offset=0x22 size=4 [ PC ];
+# Multiply/divide register
+define register offset=0x26 size=4 [ MDR ];
+
+define space hack_register type=ram_space size=1;
+define hack_register offset=0 size=1 [ PSW_ZF PSW_NF PSW_CF PSW_VF PSW_ZX PSW_NX PSW_CX PSW_VX PSW_IM0 PSW_IM1 PSW_IM2 PSW_IE PSW_S0 PSW_S1 ];
+@define ZF  "PSW_ZF"
+@define NF  "PSW_NF"
+@define CF  "PSW_CF"
+@define VF  "PSW_VF"
+@define ZX  "PSW_ZX"
+@define NX  "PSW_NX"
+@define CX  "PSW_CX"
+@define VX  "PSW_VX"
+@define IM0 "PSW_IM0"
+@define IM1 "PSW_IM1"
+@define IM2 "PSW_IM2"
+@define IE  "PSW_IE"
+@define S0  "PSW_S0"
+@define S1  "PSW_S1"
+
+define token format1(8)
+    n1 = (0,3)
+    n2 = (4,7)
+;
+
+:NOP is n1 = 0x12 & n2 = 0x11 {}
